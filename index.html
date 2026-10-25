@@ -77,10 +77,13 @@ document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{role=b.datase
 </script>
 
 <style>
-  #visitor-counter .gcvc-label {
+  #visitor-counter .gcvc-label,
+  #visitor-counter label,
+  #visitor-counter small {
     display: none !important;
   }
-  #visitor-counter .gcvc {
+
+  #visitor-counter {
     color: #f3d38b;
     font-size: 28px;
     font-weight: bold;
