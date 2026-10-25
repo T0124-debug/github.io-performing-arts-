@@ -47,4 +47,32 @@ document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{role=b.datase
 </script>
 <script data-goatcounter="https://micocat.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
+
+<div style="text-align:center;padding:24px 12px;color:#f3d38b;">
+  <div style="font-size:18px;font-weight:bold;">
+    ✦ 累積參觀人次 ✦
+  </div>
+  <div id="visitor-counter" style="display:flex;justify-content:center;margin:14px 0;"></div>
+  <div style="font-size:14px;color:#e5d4ef;">
+    每一次連結，都是一場藝術的相遇。
+  </div>
+</div>
+
+<script>
+(function () {
+  var timer = setInterval(function () {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(timer);
+      window.goatcounter.visit_count({
+        append: '#visitor-counter',
+        path: 'TOTAL',
+        type: 'html',
+        no_branding: true,
+        style: 'div {background:#302044;color:#f3d38b;border-color:#b99b69;}'
+      });
+    }
+  }, 100);
+  setTimeout(function () { clearInterval(timer); }, 10000);
+})();
+</script>
 </body></html>
