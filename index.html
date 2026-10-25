@@ -63,13 +63,27 @@ document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{role=b.datase
   var timer = setInterval(function () {
     if (window.goatcounter && window.goatcounter.visit_count) {
       clearInterval(timer);
-      window.goatcounter.visit_count({
-        append: '#visitor-counter',
-        path: 'TOTAL',
-        type: 'html',
-        no_branding: true,
-        style: 'div {background:#302044;color:#f3d38b;border-color:#b99b69;}'
-      });
+     
+window.goatcounter.visit_count({
+  append: '#visitor-counter',
+  path: 'TOTAL',
+  type: 'html',
+  no_branding: true
+});
+
+setTimeout(function () {
+  var counter = document.getElementById('visitor-counter');
+  if (!counter) return;
+
+  var match = counter.textContent.match(/\d[\d,]*/);
+  if (match) {
+    counter.textContent = match[0];
+    counter.style.color = '#f3d38b';
+    counter.style.fontSize = '28px';
+    counter.style.fontWeight = 'bold';
+  }
+}, 1500);
+
     }
   }, 100);
   setTimeout(function () { clearInterval(timer); }, 10000);
