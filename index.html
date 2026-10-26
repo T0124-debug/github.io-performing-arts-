@@ -61,7 +61,7 @@ document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{role=b.datase
       const value = Number(String(raw ?? '').replace(/[^0-9]/g, ''));
       if (!Number.isFinite(value) || raw == null) throw new Error('invalid count');
       display.textContent = value.toLocaleString('zh-TW');
-      note.textContent = '自動每 60 秒查詢最新公開統計；統計服務可能有快取延遲。';
+      note.textContent = '統計服務可能有快取延遲';
     } catch (error) {
       if (display.textContent === '讀取中…') display.textContent = '暫時無法取得';
       note.textContent = '瀏覽統計暫時無法更新，請稍後再試。';
