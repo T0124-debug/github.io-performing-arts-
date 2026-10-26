@@ -125,4 +125,132 @@ document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{role=b.datase
   document.addEventListener('visibilitychange', function () { if (!document.hidden) updateCount(); });
 })();
 </script>
+
+<!-- 米果加菲老師：奇幻劇場背景音樂 -->
+<audio id="micoMusic"
+       src="music/星空劇場的呢喃.mp3"
+       preload="auto"
+       loop></audio>
+
+<style>
+  #micoMusicButton {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid #f8dfa5;
+    background: #f1cd85;
+    color: #34234d;
+    font-size: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0,0,0,.3);
+  }
+
+  #micoMusicButton:hover {
+    background: #ffe5aa;
+  }
+
+  .mico-emotion-cover {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 16px auto;
+    border-radius: 14px;
+  }
+</style>
+
+<button id="micoMusicButton"
+        type="button"
+        aria-label="播放背景音樂"
+        title="播放背景音樂">♫</button>
+
+<script>
+(function () {
+  const music = document.getElementById("micoMusic");
+  const button = document.getElementById("micoMusicButton");
+
+  music.volume = 0.10;
+
+  let userPaused = false;
+
+  function updateButton() {
+    const playing = !music.paused;
+    button.textContent = playing ? "Ⅱ" : "♫";
+    button.title = playing ? "暫停背景音樂" : "播放背景音樂";
+    button.setAttribute("aria-label", button.title);
+  }
+
+  async function startMusic() {
+    if (userPaused || !music.paused) return;
+    try {
+      await music.play();
+    } catch (e) {
+      // 瀏覽器可能阻擋自動播放
+    }
+  }
+
+  startMusic();
+
+  function firstInteraction(event) {
+    if (event.target === button) return;
+    startMusic();
+  }
+
+  document.addEventListener("pointerdown", firstInteraction);
+  document.addEventListener("keydown", firstInteraction);
+
+  button.addEventListener("click", async function () {
+    if (music.paused) {
+      userPaused = false;
+      await startMusic();
+    } else {
+      userPaused = true;
+      music.pause();
+    }
+    updateButton();
+  });
+
+  music.addEventListener("play", updateButton);
+  music.addEventListener("pause", updateButton);
+  updateButton();
+
+  // 情緒小教室：指定封面圖片
+  const emotionTitle = "鳳君老師的情緒小教室";
+  const emotionImage = "情緒小教室圖示.jpg";
+
+  if (typeof storyCourses !== "undefined") {
+    const course = storyCourses.find(
+      item => item.title === emotionTitle
+    );
+    if (course) course.thumbnail = emotionImage;
+  }
+
+  // 課程內頁顯示封面
+  const detailTitle = document.getElementById("detailTitle");
+  if (detailTitle) {
+    const observer = new MutationObserver(function () {
+      if (detailTitle.textContent.trim() !== emotionTitle) return;
+
+      const detail = detailTitle.parentElement;
+      if (!detail || detail.querySelector(".mico-emotion-cover")) return;
+
+      const img = document.createElement("img");
+      img.src = emotionImage;
+      img.alt = "青少年7個情緒議題";
+      img.className = "mico-emotion-cover";
+      detailTitle.insertAdjacentElement("afterend", img);
+    });
+
+    observer.observe(detailTitle, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+})();
+</script>
 </body></html>
