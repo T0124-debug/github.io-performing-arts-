@@ -88,13 +88,30 @@ $('next').onclick=()=>go(phase+1,phase>=0&&phase<4);
 $('reset').onclick=()=>go(0);
 $('full').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
 
-const scenes={
- midsummer:{title:'仲夏夜之夢｜場景參考',src:'scene_midsummer.png'},
- lear:{title:'李爾王｜場景參考',src:'scene_lear.png'},
- shrew:{title:'馴悍記｜場景參考',src:'scene_shrew.png'},
- twelfth:{title:'第十二夜｜場景參考',src:'scene_twelfth.png'},
- merchant:{title:'威尼斯商人｜場景參考',src:'scene_merchant.png'}
+
+const scenes = {
+  midsummer: {
+    title: '仲夏夜之夢｜場景參考',
+    src: '仲夏夜之夢場景示範圖.png'
+  },
+  lear: {
+    title: '李爾王｜場景參考',
+    src: '李爾王場景示範圖.png'
+  },
+  shrew: {
+    title: '馴悍記｜場景參考',
+    src: '馴悍記場景參考圖.png'
+  },
+  twelfth: {
+    title: '第十二夜｜場景參考',
+    src: '第十二夜場景參考圖.png'
+  },
+  merchant: {
+    title: '威尼斯商人｜場景參考',
+    src: '威尼斯商人場景參考圖.png'
+  }
 };
+
 function closeScene(){ $('sceneModal').hidden=true; $('sceneImage').removeAttribute('src'); }
 document.querySelectorAll('[data-scene]').forEach(button=>button.addEventListener('click',()=>{
  const item=scenes[button.dataset.scene];if(!item)return;
