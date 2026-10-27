@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>米果加菲老師｜課堂排練室</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:"Microsoft JhengHei",sans-serif;
+ color:#f8f1ff;
+ background:radial-gradient(circle at top,#49356b,#1b1331 75%);
+}
+main{max-width:1500px;margin:auto;padding:20px}
+header{color:#f3d58e;text-align:center;font-size:18px}
+.panel{
+ background:#ffffff0d;
+ border:1px solid #826b9e;
+ border-radius:24px;
+ padding:22px;
+ margin-top:16px;
+ text-align:center;
+}
+h1{
+ color:#f4d48d;
+ font-size:clamp(30px,4vw,52px);
+ margin:12px 0;
+}
+#phase{color:#d6b9f3}
+#clock{
+ font-size:clamp(72px,11vw,140px);
+ font-weight:bold;
+ font-variant-numeric:tabular-nums;
+}
+#clock.warning{color:#ffd36f}
+#clock.danger{color:#ff8597}
+#hint{font-size:19px;line-height:1.7}
+.progress{
+ height:10px;
+ background:#423453;
+ border-radius:20px;
+ overflow:hidden;
+ margin:20px 0;
+}
+#bar{height:100%;width:0;background:#f4d48d}
+.images{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+ margin:20px 0;
+}
+figure{
+ margin:0;
+ background:white;
+ padding:10px;
+ border-radius:16px;
+ color:#302044;
+ border:2px solid #e7d0a0;
+}
+figure img{
+ display:block;
+ width:100%;
+ height:480px;
+ object-fit:contain;
+ background:white;
+}
+figcaption{
+ font-size:19px;
+ font-weight:bold;
+ padding:10px 0 3px;
+}
+.rubric{
+ text-align:left;
+ background:#392b52;
+ padding:20px;
+ border-radius:16px;
+ margin:18px 0;
+}
+.rubric h2,.summary h2{
+ text-align:center;
+ color:#f4d48d;
+}
+.criteria{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+.criteria div{
+ background:#514067;
+ padding:16px;
+ border-radius:12px;
+ line-height:1.7;
+ font-size:18px;
+}
+.criteria b{color:#ffdfa6}
+.summary{
+ background:#392b52;
+ border-radius:16px;
+ padding:20px;
+ margin:18px 0;
+ text-align:left;
+}
+.summary[hidden]{display:none}
+.feedback{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:14px;
+}
+label{
+ display:block;
+ color:#f4d48d;
+ font-weight:bold;
+ margin-bottom:14px;
+}
+textarea{
+ display:block;
+ width:100%;
+ min-height:90px;
+ margin-top:8px;
+ padding:12px;
+ border-radius:10px;
+ border:1px solid #a58bbf;
+ background:#241b39;
+ color:white;
+ font:inherit;
+}
+.controls{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:12px;
+ margin-top:22px;
+}
+button{
+ font:inherit;
+ font-size:18px;
+ color:white;
+ background:#40305e;
+ border:1px solid #b7a0d1;
+ border-radius:14px;
+ padding:13px 22px;
+ cursor:pointer;
+}
+button.primary{
+ background:#f0cc84;
+ color:#302044;
+ font-weight:bold;
+}
+button:disabled{opacity:.4}
+.note{color:#c8b7d8;font-size:14px;margin-top:20px}
+@media(max-width:760px){
+ .images,.criteria,.feedback{grid-template-columns:1fr}
+ figure img{height:auto;max-height:75vh}
+ .panel{padding:14px}
+}
+</style>
+</head>
+<body>
+<main>
+<header>✦ 米果加菲老師的表演藝術交流道｜課堂排練室</header>
+
+<section class="panel">
+<div id="phase">階段 1／6</div>
+<h1 id="title">老師解說與觀察任務</h1>
+<div id="clock" hidden>08:00</div>
+<p id="hint">先說明排練要訣與觀察標準，再開始第一組。</p>
+
+<div class="progress" id="progress" hidden>
+<div id="bar"></div>
+</div>
+
+<div class="images" id="images">
+<figure>
+<img src="rehearsal_positions.png" alt="說書人站位說明">
+<figcaption>說書人站位說明</figcaption>
+</figure>
+<figure>
+<img src="rehearsal_guide.png" alt="六格排練提醒">
+<figcaption>說故事劇場排練六要訣</figcaption>
+</figure>
+</div>
+
+<div class="rubric" id="rubric">
+<h2>老師觀察評量依據</h2>
+<div class="criteria">
+<div><b>① 角色與情緒</b><p>角色清楚、登場亮相，讓觀眾理解人物。</p></div>
+<div><b>② 聲音與肢體</b><p>說書清楚，運用聲音、動作與身體造型。</p></div>
+<div><b>③ 合作與排練</b><p>願意聆聽、討論、調整並主動帶領。</p></div>
+<div><b>④ 舞台空間</b><p>善用站位、移動與舞台畫面，不擋住觀眾視線。</p></div>
+</div>
+</div>
+
+<div class="summary" id="summary" hidden>
+<h2>教師觀察回饋與今日總結</h2>
+<div class="feedback">
+<label>第一組
+<textarea placeholder="值得肯定的表現與調整建議"></textarea>
+</label>
+<label>第二組
+<textarea placeholder="值得肯定的表現與調整建議"></textarea>
+</label>
+<label>第三組
+<textarea placeholder="值得肯定的表現與調整建議"></textarea>
+</label>
+<label>第四組
+<textarea placeholder="值得肯定的表現與調整建議"></textarea>
+</label>
+</div>
+<label>下一次排練的共同目標
+<textarea placeholder="老師的課末總結"></textarea>
+</label>
+<p>提醒：重新整理網頁後，回饋文字不會保留。</p>
+</div>
+
+<div class="controls">
+<button id="prev">← 上一階段</button>
+<button class="primary" id="play">開始第一組排練</button>
+<button id="next">下一階段 →</button>
+<button id="reset">重新開始</button>
+<button id="full">⛶ 全螢幕</button>
+</div>
+
+<p class="note">
+四組各 8 分鐘｜自動切換下一組｜最後 30 秒金色提醒｜
+最後 10 秒紅色提醒｜無背景音樂
+</p>
+</section>
+</main>
+
+<script>
+const phases=[
+ "老師解說與觀察任務",
+ "第一組排練時間",
+ "第二組排練時間",
+ "第三組排練時間",
+ "第四組排練時間",
+ "教師觀察回饋與今日總結"
+];
+
+const DURATION=480000;
+let phase=0;
+let remaining=DURATION;
+let running=false;
+let deadline=0;
+let timer=null;
+
+const $=id=>document.getElementById(id);
+
+function stop(){
+ if(running){
+  remaining=Math.max(0,deadline-performance.now());
+ }
+ running=false;
+ clearInterval(timer);
+ timer=null;
+}
+
+function chime(){
+ try{
+  const ctx=new(window.AudioContext||window.webkitAudioContext)();
+  const osc=ctx.createOscillator();
+  const gain=ctx.createGain();
+  osc.type="sine";
+  osc.frequency.value=660;
+  gain.gain.setValueAtTime(.001,ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.05,ctx.currentTime+.02);
+  gain.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.4);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime+.45);
+  osc.onended=()=>ctx.close();
+ }catch(e){}
+}
+
+function render(){
+ const active=phase>=1&&phase<=4;
+ $("phase").textContent="階段 "+(phase+1)+"／6";
+ $("title").textContent=phases[phase];
+
+ $("hint").textContent=
+ phase===0?"先用兩張圖片說明排練要訣與觀察標準。":
+ phase===5?"老師總結各組亮點、調整方向與下次目標。":
+ "請對照兩張圖片，注意角色亮相、說書人站位與合作調度。";
+
+ $("clock").hidden=!active;
+ $("progress").hidden=!active;
+ $("images").hidden=phase===5;
+ $("rubric").hidden=phase!==0;
+ $("summary").hidden=phase!==5;
+
+ const seconds=Math.ceil(remaining/1000);
+ $("clock").textContent=
+ String(Math.floor(seconds/60)).padStart(2,"0")+":"+
+ String(seconds%60).padStart(2,"0");
+
+ $("clock").className=
+ seconds<=10?"danger":seconds<=30?"warning":"";
+
+ $("bar").style.width=
+ (100*(1-remaining/DURATION))+"%";
+
+ $("play").textContent=
+ phase===0?"開始第一組排練":
+ phase===5?"回到老師解說":
+ running?"暫停倒數":"繼續倒數";
+
+ $("prev").disabled=phase===0;
+ $("next").disabled=phase===5;
+}
+
+function start(){
+ if(running)return;
+ running=true;
+ deadline=performance.now()+remaining;
+
+ timer=setInterval(()=>{
+  remaining=Math.max(0,deadline-performance.now());
+  if(remaining<=0){
+   stop();
+   chime();
+   phase=Math.min(phase+1,5);
+   remaining=DURATION;
+   if(phase<=4)start();
+  }
+  render();
+ },100);
+
+ render();
+}
+
+function go(n,autostart=false){
+ stop();
+ phase=Math.max(0,Math.min(5,n));
+ remaining=DURATION;
+ if(autostart&&phase>=1&&phase<=4)start();
+ render();
+}
+
+$("play").onclick=()=>{
+ if(phase===0)go(1,true);
+ else if(phase===5)go(0);
+ else if(running){stop();render();}
+ else start();
+};
+
+$("prev").onclick=()=>go(phase-1);
+$("next").onclick=()=>go(phase+1,phase>=0&&phase<4);
+$("reset").onclick=()=>go(0);
+
+$("full").onclick=()=>{
+ if(!document.fullscreenElement){
+  document.documentElement.requestFullscreen?.();
+ }else{
+  document.exitFullscreen?.();
+ }
+};
+
+render();
+</script>
+</body>
+</html>
