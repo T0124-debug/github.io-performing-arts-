@@ -1,363 +1,109 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>米果加菲老師｜排練導演台</title><style>
+:root{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;color:#f8f1ff;background:#1b1331}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0%,#4a346e,#1b1331 70%)}main{max-width:1250px;margin:auto;padding:22px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#eecb87}.panel{border:1px solid #7c6798;border-radius:24px;background:#ffffff0d;padding:28px;margin-top:18px;text-align:center}.eyebrow{color:#d4b7f1}h1{font-size:clamp(30px,5vw,56px);margin:12px 0;color:#f4d48d}#clock{font-size:clamp(72px,15vw,160px);font-weight:800;letter-spacing:3px;font-variant-numeric:tabular-nums;line-height:1.2}#clock.warning{color:#f8d076}#clock.danger{color:#ff929e}.hint{font-size:18px;color:#d6c8e7}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}.card{border-radius:20px;padding:24px;background:linear-gradient(135deg,#5c477a,#34274f);border:1px solid #9279af;min-height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.card .symbol{font-size:62px}.card strong{font-size:clamp(21px,3vw,31px);color:#ffe1a3}.card span{font-size:17px;color:#e5d8f0}.controls{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}button{font:inherit;border:1px solid #b7a0d1;border-radius:14px;padding:13px 23px;background:#3f305d;color:#fff;cursor:pointer;font-size:18px}button.primary{background:#f0cc84;color:#2e2045;border:0;font-weight:800}button:disabled{opacity:.4;cursor:not-allowed}button:focus-visible{outline:3px solid #fff}.progress{height:10px;background:#433655;border-radius:99px;overflow:hidden;margin:22px 0}.progress div{height:100%;width:0;background:#e9c985;transition:width .2s}.note{font-size:14px;color:#bcaaca;margin-top:20px}@media(max-width:680px){.cards{grid-template-columns:1fr}.panel{padding:16px}.card{min-height:145px}button{font-size:15px;padding:11px 15px}}
+.rubric{margin:20px auto;text-align:left;max-width:1000px;padding:22px;background:#392b52;border:1px solid #ad90cb;border-radius:18px}.rubric h2{text-align:center;color:#f7d99d;font-size:clamp(22px,3vw,31px);margin:0 0 18px}.rubric-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rubric-grid>div{padding:15px;border-radius:12px;background:#514067}.rubric-grid b{display:block;color:#ffdfa6;font-size:20px;margin-bottom:7px}.rubric-grid span{display:block;font-size:17px;line-height:1.5}.rubric p{font-size:17px;color:#e5d6ef;text-align:center;margin:18px 0 0}@media(max-width:680px){.rubric-grid{grid-template-columns:1fr}.rubric{padding:15px}}
 
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>米果加菲老師｜課堂排練室</title>
-<style>
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:"Microsoft JhengHei",sans-serif;
- color:#f8f1ff;
- background:radial-gradient(circle at top,#49356b,#1b1331 75%);
-}
-main{max-width:1500px;margin:auto;padding:20px}
-header{color:#f3d58e;text-align:center;font-size:18px}
-.panel{
- background:#ffffff0d;
- border:1px solid #826b9e;
- border-radius:24px;
- padding:22px;
- margin-top:16px;
- text-align:center;
-}
-h1{
- color:#f4d48d;
- font-size:clamp(30px,4vw,52px);
- margin:12px 0;
-}
-#phase{color:#d6b9f3}
-#clock{
- font-size:clamp(72px,11vw,140px);
- font-weight:bold;
- font-variant-numeric:tabular-nums;
-}
-#clock.warning{color:#ffd36f}
-#clock.danger{color:#ff8597}
-#hint{font-size:19px;line-height:1.7}
-.progress{
- height:10px;
- background:#423453;
- border-radius:20px;
- overflow:hidden;
- margin:20px 0;
-}
-#bar{height:100%;width:0;background:#f4d48d}
-.images{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px;
- margin:20px 0;
-}
-figure{
- margin:0;
- background:white;
- padding:10px;
- border-radius:16px;
- color:#302044;
- border:2px solid #e7d0a0;
-}
-figure img{
- display:block;
- width:100%;
- height:480px;
- object-fit:contain;
- background:white;
-}
-figcaption{
- font-size:19px;
- font-weight:bold;
- padding:10px 0 3px;
-}
-.rubric{
- text-align:left;
- background:#392b52;
- padding:20px;
- border-radius:16px;
- margin:18px 0;
-}
-.rubric h2,.summary h2{
- text-align:center;
- color:#f4d48d;
-}
-.criteria{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px;
-}
-.criteria div{
- background:#514067;
- padding:16px;
- border-radius:12px;
- line-height:1.7;
- font-size:18px;
-}
-.criteria b{color:#ffdfa6}
-.summary{
- background:#392b52;
- border-radius:16px;
- padding:20px;
- margin:18px 0;
- text-align:left;
-}
-.summary[hidden]{display:none}
-.feedback{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:14px;
-}
-label{
- display:block;
- color:#f4d48d;
- font-weight:bold;
- margin-bottom:14px;
-}
-textarea{
- display:block;
- width:100%;
- min-height:90px;
- margin-top:8px;
- padding:12px;
- border-radius:10px;
- border:1px solid #a58bbf;
- background:#241b39;
- color:white;
- font:inherit;
-}
-.controls{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:12px;
- margin-top:22px;
-}
-button{
- font:inherit;
- font-size:18px;
- color:white;
- background:#40305e;
- border:1px solid #b7a0d1;
- border-radius:14px;
- padding:13px 22px;
- cursor:pointer;
-}
-button.primary{
- background:#f0cc84;
- color:#302044;
- font-weight:bold;
-}
-button:disabled{opacity:.4}
-.note{color:#c8b7d8;font-size:14px;margin-top:20px}
-@media(max-width:760px){
- .images,.criteria,.feedback{grid-template-columns:1fr}
- figure img{height:auto;max-height:75vh}
- .panel{padding:14px}
-}
-</style>
-</head>
-<body>
-<main>
-<header>✦ 米果加菲老師的表演藝術交流道｜課堂排練室</header>
+.teaching-images{display:grid;grid-template-columns:minmax(0,850px);justify-content:center;gap:16px;align-items:start;margin:20px 0}
+.teaching-images figure{margin:0;background:#fff;border:2px solid #e7d0a0;border-radius:15px;padding:7px;color:#322344}
+.teaching-images figure{display:flex;flex-direction:column;min-width:0}.teaching-images img{display:block;width:100%;height:auto;max-height:65vh;object-fit:contain;object-position:center;background:#fff;border-radius:9px}.teaching-images figcaption{margin-top:auto}
+.teaching-images figcaption{font-size:16px;font-weight:700;padding:7px 0 2px}
+.wrapup{text-align:left;margin:18px 0;padding:20px;border-radius:18px;background:#3b2d53}
+.wrapup[hidden]{display:none!important}
+.wrapup h2{text-align:center;color:#f4d48d}.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wrapup label{display:block;font-weight:700;color:#f4d48d}.wrapup textarea{display:block;width:100%;min-height:88px;margin-top:8px;border-radius:12px;border:1px solid #ad94c5;background:#241b39;color:white;padding:12px;font:inherit;resize:vertical}
+.wrapup .nextgoal{margin-top:16px}.wrapup p{font-size:13px;color:#d4c8e7}
+@media(max-width:760px){.teaching-images,.summary-grid{grid-template-columns:1fr}.teaching-images img{height:auto;max-height:70vh}}
+@media(min-width:1000px){main{max-width:1500px}.panel{padding:18px 26px}h1{font-size:clamp(28px,3vw,42px)}#clock{font-size:clamp(60px,8vw,112px)}}
 
-<section class="panel">
-<div id="phase">階段 1／6</div>
-<h1 id="title">老師解說與觀察任務</h1>
-<div id="clock" hidden>08:00</div>
-<p id="hint">先說明排練要訣與觀察標準，再開始第一組。</p>
-
-<div class="progress" id="progress" hidden>
-<div id="bar"></div>
-</div>
-
-<div class="images" id="images">
-<figure>
-<img src="rehearsal_positions.png" alt="說書人站位說明">
-<figcaption>說書人站位說明</figcaption>
-</figure>
-<figure>
-<img src="rehearsal_guide.png" alt="六格排練提醒">
-<figcaption>說故事劇場排練六要訣</figcaption>
-</figure>
-</div>
-
-<div class="rubric" id="rubric">
-<h2>老師觀察評量依據</h2>
-<div class="criteria">
-<div><b>① 角色與情緒</b><p>角色清楚、登場亮相，讓觀眾理解人物。</p></div>
-<div><b>② 聲音與肢體</b><p>說書清楚，運用聲音、動作與身體造型。</p></div>
-<div><b>③ 合作與排練</b><p>願意聆聽、討論、調整並主動帶領。</p></div>
-<div><b>④ 舞台空間</b><p>善用站位、移動與舞台畫面，不擋住觀眾視線。</p></div>
-</div>
-</div>
-
-<div class="summary" id="summary" hidden>
-<h2>教師觀察回饋與今日總結</h2>
-<div class="feedback">
-<label>第一組
-<textarea placeholder="值得肯定的表現與調整建議"></textarea>
-</label>
-<label>第二組
-<textarea placeholder="值得肯定的表現與調整建議"></textarea>
-</label>
-<label>第三組
-<textarea placeholder="值得肯定的表現與調整建議"></textarea>
-</label>
-<label>第四組
-<textarea placeholder="值得肯定的表現與調整建議"></textarea>
-</label>
-</div>
-<label>下一次排練的共同目標
-<textarea placeholder="老師的課末總結"></textarea>
-</label>
-<p>提醒：重新整理網頁後，回饋文字不會保留。</p>
-</div>
-
-<div class="controls">
-<button id="prev">← 上一階段</button>
-<button class="primary" id="play">開始第一組排練</button>
-<button id="next">下一階段 →</button>
-<button id="reset">重新開始</button>
-<button id="full">⛶ 全螢幕</button>
-</div>
-
-<p class="note">
-四組各 8 分鐘｜自動切換下一組｜最後 30 秒金色提醒｜
-最後 10 秒紅色提醒｜無背景音樂
-</p>
-</section>
-</main>
-
-<script>
+.scene-section{margin:20px 0 8px;padding:18px;border:1px solid #a58ac8;border-radius:18px;background:#2c2145}
+.scene-section h2{margin:0 0 13px;color:#f4d48d;font-size:clamp(19px,2.4vw,27px)}
+.scene-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.scene-buttons button{font-size:clamp(14px,1.5vw,18px);padding:12px 15px;background:#624b89;border-color:#b89cda}
+.scene-buttons button:hover{background:#8065ad}
+.scene-modal[hidden]{display:none!important}.scene-modal{position:fixed;inset:0;z-index:9999;background:#100a1af2;display:flex;flex-direction:column;padding:12px 18px;align-items:center;justify-content:center;gap:12px}
+.scene-modal-head{display:flex;align-items:center;justify-content:space-between;gap:15px;width:min(95vw,1200px)}
+.scene-modal h2{color:#ffe4a6;margin:0;font-size:clamp(19px,2.7vw,32px)}
+.scene-timer{display:flex;align-items:center;justify-content:center;gap:22px;width:min(95vw,1200px);background:#34234f;border:2px solid #eecb87;border-radius:15px;padding:7px 18px;color:#fff}.scene-timer span{font-size:clamp(16px,2vw,24px);font-weight:700}.scene-timer strong{font-size:clamp(35px,5vw,66px);font-variant-numeric:tabular-nums;color:#ffe2a0;line-height:1}.scene-timer strong.warning{color:#f8d076}.scene-timer strong.danger{color:#ff929e}.scene-modal img{display:block;max-width:min(95vw,1200px);max-height:calc(100dvh - 215px);width:auto;height:auto;object-fit:contain;border-radius:12px;background:white}
+.scene-modal button{background:#f0cc84;color:#271b3c;font-weight:800}
+@media(max-width:680px){.scene-modal{padding:10px}.scene-modal-head{width:100%}.scene-modal img{max-width:100%;max-height:calc(100dvh - 205px)}}
+</style></head><body><main><header><div>✦ 米果加菲老師的表演藝術交流道</div><div>🎭 排練導演台｜四組測試版</div></header><section class="panel"><div class="eyebrow" id="phase">階段 1／6 · 抓取場景任務</div><h1 id="title">抓取場景任務</h1><div id="clock">— — : — —</div><p class="hint" id="hint">請各組先抓出劇本中的3個場景</p><div class="progress"><div id="bar"></div></div><div class="teaching-images" id="teachingImages"><figure><img src="rehearsal_positions.png" alt="說書劇場排練六要訣"><figcaption>說書劇場排練六要訣</figcaption></figure></div><section id="sceneSection" class="scene-section" hidden><h2>🎭 各劇本場景參考｜點選觀看圖片</h2><div class="scene-buttons">
+<button type="button" data-scene="midsummer">仲夏夜之夢場景參考</button>
+<button type="button" data-scene="lear">李爾王場景參考</button>
+<button type="button" data-scene="shrew">馴悍記場景參考</button>
+<button type="button" data-scene="twelfth">第十二夜場景參考</button>
+<button type="button" data-scene="merchant">威尼斯商人場景參考</button>
+</div></section><div class="cards" id="cards"><div class="card"><div class="symbol">🎭</div><strong>角色與表達</strong><span>角色與情緒、聲音與肢體</span></div><div class="card"><div class="symbol">🤝</div><strong>合作與空間</strong><span>團隊合作、舞台空間與調度</span></div></div><div id="rubric" class="rubric"><h2>排練觀察標準｜請先向全班說明</h2><div class="rubric-grid"><div><b>① 角色與情緒表達</b><span>角色是否清楚？情緒是否能讓觀眾理解？</span></div><div><b>② 聲音與肢體運用</b><span>音量、語氣、動作是否適合角色與情境？</span></div><div><b>③ 團隊合作</b><span>能否互相接應、聆聽，並完成共同任務？</span></div><div><b>④ 舞台空間與調度</b><span>站位、移動與觀眾視線是否清楚？</span></div></div><p>觀察時請先記錄具體表現，再提出一項肯定與一項建議；正式給分規則可於下一版設定。</p></div><section id="wrapup" class="wrapup" hidden>
+<h2>今天的排練，我們看見了什麼？</h2>
+<div class="summary-grid">
+<label>第1組｜值得肯定的表現<textarea placeholder="記下這組的亮點，以及下一次可以調整的地方……"></textarea></label><label>第2組｜值得肯定的表現<textarea placeholder="記下這組的亮點，以及下一次可以調整的地方……"></textarea></label><label>第3組｜值得肯定的表現<textarea placeholder="記下這組的亮點，以及下一次可以調整的地方……"></textarea></label><label>第4組｜值得肯定的表現<textarea placeholder="記下這組的亮點，以及下一次可以調整的地方……"></textarea></label></div><label class="nextgoal">下一次排練的共同目標<textarea placeholder="從六項排練要訣中選出下次要加強的目標……"></textarea></label>
+<p>這些文字只會暫存在目前頁面，重新整理後不會保留；可於課後複製備存。</p></section><div class="controls"><button id="prev">← 上一階段</button><button class="primary" id="play">開始第一組排練</button><button id="next">下一階段 →</button><button id="reset">重新開始</button><button id="full">⛶ 全螢幕</button></div><div class="note">共四組，每組 7 分鐘（合計 28 分鐘）｜倒數完畢自動跳下一組｜最後 30 秒金色提醒｜最後 10 秒紅色提醒</div></section></main><div id="sceneModal" class="scene-modal" role="dialog" aria-modal="true" aria-labelledby="sceneTitle" hidden><div class="scene-timer"><span id="scenePhase">第一組排練時間</span><strong id="sceneClock">07:00</strong></div><div class="scene-modal-head"><h2 id="sceneTitle"></h2><button id="closeScene" type="button">✕ 關閉圖片</button></div><img id="sceneImage" alt="劇本場景參考圖"></div><script>
 const phases=[
- "老師解說與觀察任務",
- "第一組排練時間",
- "第二組排練時間",
- "第三組排練時間",
- "第四組排練時間",
- "教師觀察回饋與今日總結"
+ {title:'抓取場景任務',hint:'請各組先抓出劇本中的3個場景'},
+ {title:'第一組排練時間',hint:'參考排練六要訣：角色亮相、舞台調度與團隊合作。'},
+ {title:'第二組排練時間',hint:'參考排練六要訣：角色亮相、舞台調度與團隊合作。'},
+ {title:'第三組排練時間',hint:'參考排練六要訣：角色亮相、舞台調度與團隊合作。'},
+ {title:'第四組排練時間',hint:'參考排練六要訣：角色亮相、舞台調度與團隊合作。'},
+ {title:'教師觀察回饋與今日總結',hint:'老師依六項排練要訣，總結四組的亮點、可調整之處與下次目標。'}
 ];
-
-const DURATION=480000;
-let phase=0;
-let remaining=DURATION;
-let running=false;
-let deadline=0;
-let timer=null;
-
+const DURATION=7*60*1000;
+let phase=0,remaining=DURATION,running=false,deadline=0,timer=null;
 const $=id=>document.getElementById(id);
-
-function stop(){
- if(running){
-  remaining=Math.max(0,deadline-performance.now());
- }
- running=false;
- clearInterval(timer);
- timer=null;
-}
-
-function chime(){
- try{
-  const ctx=new(window.AudioContext||window.webkitAudioContext)();
-  const osc=ctx.createOscillator();
-  const gain=ctx.createGain();
-  osc.type="sine";
-  osc.frequency.value=660;
-  gain.gain.setValueAtTime(.001,ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(.05,ctx.currentTime+.02);
-  gain.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.4);
-  osc.connect(gain).connect(ctx.destination);
-  osc.start();
-  osc.stop(ctx.currentTime+.45);
-  osc.onended=()=>ctx.close();
- }catch(e){}
-}
-
-function render(){
+function stop(){if(running)remaining=Math.max(0,deadline-performance.now());running=false;clearInterval(timer);timer=null}
+function chime(){try{const ctx=new(window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=660;g.gain.setValueAtTime(.001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.065,ctx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.45);o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.5);o.onended=()=>ctx.close()}catch(e){}}
+function paint(){
  const active=phase>=1&&phase<=4;
- $("phase").textContent="階段 "+(phase+1)+"／6";
- $("title").textContent=phases[phase];
-
- $("hint").textContent=
- phase===0?"先用兩張圖片說明排練要訣與觀察標準。":
- phase===5?"老師總結各組亮點、調整方向與下次目標。":
- "請對照兩張圖片，注意角色亮相、說書人站位與合作調度。";
-
- $("clock").hidden=!active;
- $("progress").hidden=!active;
- $("images").hidden=phase===5;
- $("rubric").hidden=phase!==0;
- $("summary").hidden=phase!==5;
-
- const seconds=Math.ceil(remaining/1000);
- $("clock").textContent=
- String(Math.floor(seconds/60)).padStart(2,"0")+":"+
- String(seconds%60).padStart(2,"0");
-
- $("clock").className=
- seconds<=10?"danger":seconds<=30?"warning":"";
-
- $("bar").style.width=
- (100*(1-remaining/DURATION))+"%";
-
- $("play").textContent=
- phase===0?"開始第一組排練":
- phase===5?"回到老師解說":
- running?"暫停倒數":"繼續倒數";
-
- $("prev").disabled=phase===0;
- $("next").disabled=phase===5;
+ $('phase').textContent=`階段 ${phase+1}／6`;
+ $('title').textContent=phases[phase].title;
+ $('hint').textContent=phases[phase].hint;
+ const sec=Math.ceil(remaining/1000);
+ $('clock').style.display=active?'block':'none';
+ $('clock').textContent=active?`${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`:'— — : — —';
+ $('clock').className=active?(sec<=10?'danger':sec<=30?'warning':''):'';
+ $('scenePhase').textContent=phases[phase].title;
+ $('sceneClock').textContent=$('clock').textContent;
+ $('sceneClock').className=$('clock').className;
+ $('bar').parentElement.style.display=active?'block':'none';
+ $('bar').style.width=active?`${100*(1-remaining/DURATION)}%`:phase===5?'100%':'0%';
+ $('sceneSection').hidden=!active;
+ $('rubric').style.display='none';
+ $('wrapup').hidden=phase!==5;
+ $('teachingImages').style.display=phase<=4?'grid':'none';
+ $('cards').style.display='none';
+ $('play').textContent=phase===0?'開始第一組排練':phase===5?'回到老師解說':running?'暫停倒數':'繼續倒數';
+ $('prev').disabled=phase===0;$('next').disabled=phase===5;
 }
-
 function start(){
  if(running)return;
- running=true;
- deadline=performance.now()+remaining;
-
+ running=true;deadline=performance.now()+remaining;
  timer=setInterval(()=>{
   remaining=Math.max(0,deadline-performance.now());
-  if(remaining<=0){
-   stop();
-   chime();
-   phase=Math.min(phase+1,5);
-   remaining=DURATION;
-   if(phase<=4)start();
-  }
-  render();
+  if(remaining<=0){stop();chime();phase=Math.min(phase+1,5);remaining=DURATION;if(phase<=4)start()}
+  paint();
  },100);
-
- render();
+ paint();
 }
+function go(n,auto=false){closeScene();stop();phase=Math.max(0,Math.min(5,n));remaining=DURATION;if(auto&&phase>=1&&phase<=4)start();paint()}
+$('play').onclick=()=>{if(phase===0)go(1,true);else if(phase===5)go(0);else if(running){stop();paint()}else start()};
+$('prev').onclick=()=>go(phase-1);
+$('next').onclick=()=>go(phase+1,phase>=0&&phase<4);
+$('reset').onclick=()=>go(0);
+$('full').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
 
-function go(n,autostart=false){
- stop();
- phase=Math.max(0,Math.min(5,n));
- remaining=DURATION;
- if(autostart&&phase>=1&&phase<=4)start();
- render();
-}
-
-$("play").onclick=()=>{
- if(phase===0)go(1,true);
- else if(phase===5)go(0);
- else if(running){stop();render();}
- else start();
+const scenes={
+ midsummer:{title:'仲夏夜之夢｜場景參考',src:'scene_midsummer.png'},
+ lear:{title:'李爾王｜場景參考',src:'scene_lear.png'},
+ shrew:{title:'馴悍記｜場景參考',src:'scene_shrew.png'},
+ twelfth:{title:'第十二夜｜場景參考',src:'scene_twelfth.png'},
+ merchant:{title:'威尼斯商人｜場景參考',src:'scene_merchant.png'}
 };
-
-$("prev").onclick=()=>go(phase-1);
-$("next").onclick=()=>go(phase+1,phase>=0&&phase<4);
-$("reset").onclick=()=>go(0);
-
-$("full").onclick=()=>{
- if(!document.fullscreenElement){
-  document.documentElement.requestFullscreen?.();
- }else{
-  document.exitFullscreen?.();
- }
-};
-
-render();
-</script>
-</body>
-</html>
+function closeScene(){ $('sceneModal').hidden=true; $('sceneImage').removeAttribute('src'); }
+document.querySelectorAll('[data-scene]').forEach(button=>button.addEventListener('click',()=>{
+ const item=scenes[button.dataset.scene];if(!item)return;
+ $('sceneTitle').textContent=item.title;
+ $('sceneImage').src=item.src;
+ $('sceneModal').hidden=false;
+}));
+$('closeScene').onclick=closeScene;
+$('sceneModal').addEventListener('click',e=>{if(e.target===$('sceneModal'))closeScene()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('sceneModal').hidden)closeScene()});
+paint();
+</script></body></html>
